@@ -1,9 +1,13 @@
 $(document).ready(function(){
+  function getLocation() {  
+      navigator.geolocation.getCurrentPosition(function(position){
 
-  function getLocation() {
-    // code here
+    $('#longitude').text(position.coords.longitude);
+    $('#latitude').text(position.coords.latitude);
+    });
+
   }
-
   getLocation();
 
+  insertMap($('#longitude').text(), $('#latitude').text());
 });
